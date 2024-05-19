@@ -22,3 +22,6 @@ class SportType(BaseModel):
         verbose_name_plural = 'Sport Types'
         verbose_name = 'Sport Type'
         db_table = 'sport_type'
+
+
+
