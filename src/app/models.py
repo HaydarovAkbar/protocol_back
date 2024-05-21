@@ -6,14 +6,14 @@ from sport.models import SportType
 
 
 class Competition(BaseModel):
-    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     attr = models.CharField(max_length=255, null=True, blank=True)
     sport_type = models.ForeignKey(SportType, on_delete=models.SET_NULL, null=True, blank=True)
 
     objects = models.Manager()
 
     def __str__(self):
-        return self.name
+        return self.title
 
     class Meta:
         verbose_name_plural = 'Competitions'

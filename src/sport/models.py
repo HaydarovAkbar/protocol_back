@@ -5,13 +5,13 @@ from utils.models import BaseModel
 
 
 class SportType(BaseModel):
-    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     attr = models.CharField(max_length=255, null=True, blank=True)
 
     objects = models.Manager()
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def save(self, *args, **kwargs):
         self.updated_at = timezone.now()
