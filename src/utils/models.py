@@ -8,6 +8,8 @@ class BaseModel(models.Model):
 
     status = models.BooleanField(default=True)
 
+    objects = models.Manager()
+
     class Meta:
         abstract = True
 

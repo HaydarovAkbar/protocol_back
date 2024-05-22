@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 BASE_APPS = [
+    'modeltranslation',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,13 +50,16 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
+    'django_filters',
+    # 'rest_framework.authtoken',
+    # 'django_extensions',
 ]
 
 INSTALLED_APPS = BASE_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # translate
@@ -64,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'middleware.default_language.CustomLocaleMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',  # To add HTTP caching support
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -122,6 +128,22 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
+
+gettext = lambda s: s
+
+LANGUAGES = (
+    ('uz', gettext('Uzbek')),
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+MODELTRANSLATION_LANGUAGES = ('uz', 'en', 'ru')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('uz', 'en', 'ru')
+
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'utils.translation.translate',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

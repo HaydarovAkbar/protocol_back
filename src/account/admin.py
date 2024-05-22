@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import UserProfile, DocumentId, DocumentType
+
+admin.site.register(UserProfile)
+admin.site.register(DocumentType)
+admin.site.register(DocumentId)
