@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 BASE_APPS = [
     'modeltranslation',
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

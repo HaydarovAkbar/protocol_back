@@ -1,7 +1,17 @@
 from modeltranslation.translator import translator, TranslationOptions, register
-from ..models import State, District, Region, Language, Category, Specialization, Instruction
+from ..models import Country, Region, District
 
 
-@register(State)
-class StateTranslationOptions(TranslationOptions):
-    fields = ('name',)
+@register(Country)
+class CountryTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(Region)
+class RegionTranslationOptions(TranslationOptions):
+    fields = ('title',)
+
+
+@register(District)
+class DistrictTranslationOptions(TranslationOptions):
+    fields = ('title',)

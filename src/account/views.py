@@ -7,6 +7,7 @@ from .serializers import UserProfileSerializer, DocumentTypeSerializer
 
 class GetUserProfile(RetrieveAPIView):
     serializer_class = UserProfileSerializer
+    queryset = UserProfile.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['document_num', 'document_sr', 'pinfl', 'is_foreigner', 'birth_date']
 
