@@ -23,8 +23,8 @@ class Country(BaseModel):
     title = models.CharField(max_length=255)
     attr = models.CharField(max_length=255, null=True, blank=True)
 
-    flag = models.ImageField(upload_to='country/', null=True, blank=True)
-
+    code = models.CharField(max_length=10, null=True, blank=True)
+    flag = models.CharField(max_length=255, null=True, blank=True)
     objects = models.Manager()
 
     def __str__(self):
