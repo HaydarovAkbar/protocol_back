@@ -37,12 +37,28 @@ class AgeCategory(BaseModel):
         db_table = 'age_category'
 
 
+class CompetitionStatus(BaseModel):
+    title = models.CharField(max_length=255)
+    attr = models.CharField(max_length=255, null=True, blank=True)
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Competition Statuses'
+        verbose_name = 'Competition Status'
+        db_table = 'competition_status'
+
+
 class Competition(BaseModel):
     title = models.CharField(max_length=255)
     attr = models.CharField(max_length=255, null=True, blank=True)
     sport_type = models.ForeignKey(SportType, on_delete=models.SET_NULL, null=True, blank=True)
 
     user = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, blank=True)
+    status = models.ForeignKey(CompetitionStatus, on_delete=models.SET_NULL, null=True, blank=True)
 
     objects = models.Manager()
 
