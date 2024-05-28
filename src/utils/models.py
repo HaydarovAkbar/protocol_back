@@ -40,6 +40,8 @@ class Region(BaseModel):
     title = models.CharField(max_length=255)
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
 
+    code = models.CharField(max_length=10, null=True, blank=True)
+
     objects = models.Manager()
 
     def __str__(self):
@@ -54,6 +56,8 @@ class Region(BaseModel):
 class District(BaseModel):
     title = models.CharField(max_length=255)
     region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, blank=True)
+
+    code = models.CharField(max_length=10, null=True, blank=True)
 
     objects = models.Manager()
 

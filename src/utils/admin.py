@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Country, District
+from .models import Country, District, Region
 
 admin.site.register(District)
+admin.site.register(Region)
 
 
 class CountryAdmin(admin.ModelAdmin):
@@ -11,4 +12,4 @@ class CountryAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
 
-admin.site.register(Country, CountryAdmin)
+admin.site.register(Country, CountryAdmin) # noqa
